@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import FeedReducer from './Modules/feedReducer';
+import FeedReducer from './Modules/FeedReducer';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
