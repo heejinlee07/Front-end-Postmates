@@ -46,6 +46,14 @@ const Alert = styled.div`
   color: rgb(0, 204, 153);
 `;
 
+const LoggedInStatus = styled.div`
+  color: black;
+`;
+const CartBtn = styled.div`
+  color: black;
+  width: 100%;
+`;
+
 const Input = ({ label, register, validation, pattern, ...rest }) => (
   <>
     <input name={label} ref={register(validation, pattern)} {...rest} />
@@ -64,9 +72,10 @@ const LoginPopUp = ({ setState, openState }) => {
         id: _data.email,
         password: _data.password,
       });
-      // /api/v1/members/login/
+      console.log(data);
     } finally {
       reset();
+      setLoggedIn(false);
     }
   };
 
@@ -83,7 +92,7 @@ const LoginPopUp = ({ setState, openState }) => {
             setState={setState}
             openState={openState}
           >
-            <LoginForm onSubmit={handleSubmit(onSubmit)}>
+            <LoginForm onSubmit={handleSubmit(onSubmit)} method="POST">
               <h3>Log in</h3>
               <em>Enter your</em>
               <Input
@@ -116,7 +125,14 @@ const LoginPopUp = ({ setState, openState }) => {
           </PopUp>
         </>
       )}
-      {!isLoggedIn && <button>hello</button>}
+      <LoggedInStatus>
+        {!isLoggedIn && <span>human</span>}
+        {!isLoggedIn && (
+          <CartBtn>
+            <span>1</span>
+          </CartBtn>
+        )}
+      </LoggedInStatus>
     </LoginPopUpBlock>
   );
 };
