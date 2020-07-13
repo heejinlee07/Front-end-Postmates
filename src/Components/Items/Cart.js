@@ -20,16 +20,25 @@ const DialogBlock = styled.div`
   margin: 0 auto;
 `;
 
+const HeaderBlock = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
 const CartName = styled.div`
-  color: #8f95a3;
+  color: rgb(143, 149, 163);
   text-align: center;
+  justify-content: center;
+  min-width: 20%;
+  max-width: 90%;
+  margin: 0 auto;
 `;
 
 const ContentBlock = styled.div`
   width: 345px;
   height: 104px;
   /* margin: 0 auto; */
-  background-color: #d9dbe0;
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -43,7 +52,7 @@ const CountBlock = styled.div`
   max-height: 30%;
   text-align: center;
   padding: 1%;
-  background-color: #8f95a3;
+  background-color: rgb(246, 246, 248);
 `;
 
 const DetailBlock = styled.div`
@@ -64,7 +73,7 @@ const DetailOptionBlock = styled.div``;
 const PriceBlock = styled.div`
   min-width: 20%;
   max-width: 20%;
-  color: #8f95a3;
+  color: rgb(143, 149, 163);
 `;
 
 const RemoveBlock = styled.div`
@@ -85,18 +94,18 @@ const SubTotalBlock = styled.div`
   padding: 10px;
   width: 100%;
   border-top: 2px solid rgba(217, 219, 224, 0.5);
-  margin-top: 180px;
+  margin-top: 230px;
 `;
 
 const TotalPriceBlock = styled.div`
-  color: ${(props) => (props.active ? '#00CC99' : '#8F95A3')};
+  color: ${(props) => (props.active ? '#00CC99' : 'rgb(143, 149, 163)')};
   min-width: 50%;
   max-width: 50%;
   text-align: right;
 `;
 
 const PriceText = styled.div`
-  color: ${(props) => (props.active ? '#000000' : '#8F95A3')};
+  color: ${(props) => (props.active ? '#000000' : 'rgb(143, 149, 163)')};
   min-width: 50%;
   max-width: 50%;
 `;
@@ -152,13 +161,22 @@ const Cart = () => {
         }}
       >
         <DialogBlock>
-          <CartName>Cart - 가게이름</CartName>
+          <HeaderBlock>
+            <RemoveBlock>
+              <RemoveBtn
+                onClick={() => {
+                  setState({ isPaneOpen: false });
+                }}
+              >
+                {closeIcon}
+              </RemoveBtn>
+            </RemoveBlock>
+            <CartName>Cart - 가게이름</CartName>
+          </HeaderBlock>
           <ContentBlock>
             <CountBlock>1</CountBlock>
             <DetailBlock>
-              <DetailNameBlock>
-                Peppermint MochaPeppermint MochaPeppermint Mocha
-              </DetailNameBlock>
+              <DetailNameBlock>Peppermint MochaPeppermint</DetailNameBlock>
               <DetailOptionBlock>선택한 옵션</DetailOptionBlock>
               <div>item instruction</div>
               <PriceBlock>$555</PriceBlock>
@@ -170,9 +188,7 @@ const Cart = () => {
           <ContentBlock>
             <CountBlock>1</CountBlock>
             <DetailBlock>
-              <DetailNameBlock>
-                Peppermint MochaPeppermint MochaPeppermint Mocha
-              </DetailNameBlock>
+              <DetailNameBlock>Peppermint MochaPeppermint</DetailNameBlock>
               <DetailOptionBlock>선택한 옵션</DetailOptionBlock>
               <div>item instruction</div>
               <PriceBlock>$555</PriceBlock>
